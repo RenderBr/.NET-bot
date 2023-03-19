@@ -14,9 +14,9 @@ Download any of the corresponding releases based on your OS. [Click here to visi
  - Gender changing - use !gender <female/male> to change the bot's gender
  - Remembers context on given instance, it will forget everything once you close the app
  - Conversation logging - in the folder, a log file will be generated for each instance
+ - Ability to switch models
 
 ### What's planned?
- - Model switching, in the future I want to support the use of any (or most) of these models: https://platform.openai.com/docs/models/
  - Context concurrency after you close the app - loadable profiles that allow the bot to remember previous conversations
  - Ability to run a web server and recieve/send RESTful requests and responses, to utilize later on for other projects/web apps
  - QoL - make things more polished
