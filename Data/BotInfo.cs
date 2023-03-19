@@ -1,25 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OpenAI.Enums
+﻿namespace OpenAI.Enums
 {
     public static class BotInfo
     {
-        public enum Gender
+        public enum Gender // enum for gender assignment
         {
             Undefined = 0,
             Male = 1,
             Female = 2
         };
 
+        /// <summary>
+        /// Outputs a string to its corresponding BotInfo.Gender enum
+        /// </summary>
+        /// <param name="gender">Gender enum</param>
+        /// <returns>"undefined" / "male" / "female" </returns>
         public static string GenderToString(Gender gender)
         {
-            switch (gender)
+            switch (gender) // parse string based on gender enum
             {
-                default:
+                default: // default will always be undefined
                 case Gender.Undefined:
                     return "Undefined";
                 case Gender.Male:
@@ -28,6 +27,6 @@ namespace OpenAI.Enums
                     return "Female";
             }
         }
-        
+
     }
 }
