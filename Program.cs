@@ -1,15 +1,13 @@
 ﻿
 using Alba.CsConsoleFormat.Fluent;
 using Config.Net;
-using System.Configuration;
-using System.Reflection;
 
 namespace OpenAI
 {
     internal class Program
     {
         public static Api? api;
-        
+
         static void Main(string[] args)
         {
             api = new Api();
@@ -47,7 +45,7 @@ namespace OpenAI
                 }
                 api.Speak(message);
             }
-            
+
         }
 
     }
