@@ -18,11 +18,20 @@ namespace OpenAI
         /// </summary>
         public string Name { get; set; } = "NetBOT";
 
+        public List<Model> SupportedModels = new List<Model>()
+            {
+                new Model(Models.ChatGpt3_5Turbo, "1", "(recommended) - $0.002 / 1K tokens"),
+                new Model(Models.ChatGpt3_5Turbo0301, "2"),
+                new Model(Models.Gpt4, "3", "(not available to all)")
+
+            };
+
         /// <summary>
         /// The gender that will be used for the bot, default: BotInfo.Gender.Undefined
         /// </summary>
         public BotInfo.Gender Gender { get; set; } = BotInfo.Gender.Undefined;
         private OpenAIService? endpoint;
+        public string PreferredModel { get; set; } = Models.ChatGpt3_5Turbo;
 
         /// <summary>
         ///  The conversation history along with initial instructions for bot
@@ -94,7 +103,7 @@ namespace OpenAI
             return await endpoint.ChatCompletion.CreateCompletion(new ChatCompletionCreateRequest
             {
                 Messages = messages,
-                Model = Models.ChatGpt3_5Turbo,
+                Model = PreferredModel,
                 MaxTokens = 512,
             });
         }
@@ -113,6 +122,20 @@ namespace OpenAI
         /// Returns the Console.Title back to the default
         /// </summary>
         private void BackToName() => Console.Title = $"You are speaking to {Name}";
+
+        /// <summary>
+        /// Retrieve a list of models and print them out to the console.
+        /// </summary>
+        public void RetrieveModels()
+        {
+            if (endpoint == null)
+                return;
+
+            foreach (Model m in SupportedModels)
+            {
+                Console.WriteLine(m.InternalId + " - " + m.ModelId + (!string.IsNullOrEmpty(m.AdditionalNotes) ? $" - {m.AdditionalNotes}" : ""));
+            }
+        }
 
         /// <summary>
         /// The main method for generating a response
