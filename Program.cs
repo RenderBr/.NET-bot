@@ -2,7 +2,6 @@
 using Alba.CsConsoleFormat.Fluent;
 using Config.Net;
 using OpenAI.GPT3.ObjectModels;
-using System.Linq;
 
 namespace OpenAI
 {
@@ -48,7 +47,7 @@ namespace OpenAI
             string preferredModel = Console.ReadLine();
 
             var tempModel = api.SupportedModels.FirstOrDefault<Model>(x => x.ModelId == preferredModel || x.InternalId == preferredModel, null);
-            if(tempModel == null)
+            if (tempModel == null)
             {
                 Console.Clear();
                 Colors.WriteLine("Invalid model selected, defaulting to ChatGpt3_5Turbo".Yellow());

@@ -1,11 +1,4 @@
-﻿using OpenAI.GPT3.ObjectModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OpenAI
+﻿namespace OpenAI
 {
     public class Model
     {
