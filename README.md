@@ -21,3 +21,4 @@ Download any of the corresponding releases based on your OS. [Click here to visi
  - Ability to run a web server and recieve/send RESTful requests and responses, to utilize later on for other projects/web apps
  - QoL - make things more polished
  - More customization options related to how the bot perceives itself and you
+ - More model implementations
